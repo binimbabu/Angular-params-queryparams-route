@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'routeparams-queryParams';
+  constructor(private router: Router){}
+   login(){
+    this.router.navigate(['login', 1]);
+    //this.router.navigateByUrl("/login/" + 1);
+   }
+
+   register(){
+    this.router.navigate(['register'], {
+      queryParams: {
+        name: 'Bini',
+        age: 24
+      }
+    })
+   }
 }
